@@ -9,6 +9,12 @@ import { AgmCoreModule } from '@agm/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from './../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
       apiKey: 'AIzaSyCUrv5r8SS3z7GbCxP177xQ8HdCj2uuU_I'
     }),
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
